@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+pre, code {
+  overflow-wrap: break-word;
+  white-space: pre-wrap !important;
+  word-break: normal;
+}
+
+.md-content > *{
+  margin-top:30px
+}
+
+.md-content h2 {
+  font-size:46px;
+  margin-top:80px;
+  color:white
+}
+
+.contacts a {
+  @apply text-white mx-5 hover:text-red-500 transition duration-500
+}
+
+.md-content h2:first-child {
+  margin-top:0;
+}
+
+.md-content blockquote,
+.md-content pre {
+  @apply bg-stone-900 px-8 py-10 rounded-md 
+}
+
+.md-content strong {
+  color:white
+}
+
+.show {
+  opacity:0;
+  will-change: opacity;
+}
+
+.show-enter{
+  opacity:0
+}
+
+.show-enter-active,
+.show-enter-done{
+  opacity:1;
+  transition: opacity 800ms;
+}
+
+.show-exit {
+  opacity: 1;
+}
+
+.show-exit-active{
+  transition: opacity 800ms;
+  opacity: 0;
+}
+
+.show-exit-done{
+  @apply hidden
+}
+
+@layer utilities {
+  .text-shadow {
+    
+  }
+}
+
+/* .my-node{
+  opacity:0
+}
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 1500ms;
+}
+.my-node-enter-done {
+  opacity: 1;
+}
+
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 1500ms;
+}
+.my-node-exit-done {
+  opacity: 0;
+} */

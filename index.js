@@ -11,7 +11,7 @@ app.use((req,res,next)=>{
     next()
 })
 
-app.use(express.static("dist"))
+app.use(express.static("docs"))
 
 app.listen(3000,async function(){
     console.log("Server started at port 3001");

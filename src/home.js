@@ -12,8 +12,6 @@ export default function Home({content}) {
 
   function onScroll(){
     const scrollPosition = window.scrollY;
-    const scrollMax = document.body.scrollHeight - window.innerHeight;
-
     let effectActive = effectActiveRef.current
     
     if(scrollPosition > 100 && !effectActive){
@@ -25,21 +23,11 @@ export default function Home({content}) {
       homeIntroRef.current.classList.remove("opacity-0")
       effectActiveRef.current = false
     }
-
-  //brightness-[0.15]
-    //fadeElement.style.opacity = Math.min((scrollPosition / scrollMax) * maxOpacity, maxOpacity);
   }
 
   function toggleNav(){
-    //if(!navActive && document.body.classList.includes())
     setNavActive(!navActive)
   }
-
-  // useEffect(async ()=>{
-  //     const res = await fetch("/doc.json")
-  //     const {content} = await res.json()
-  //     setContent(content)
-  // },[])
 
   useEffect(()=>{
       
@@ -76,7 +64,8 @@ export default function Home({content}) {
   return (
     <main>
       <div className="fixed h-screen w-full -z-[1]">
-        <img ref={homeImgRef} className="object-fit h-screen w-full transition-filter duration-700" src="https://cdn.candycode.com/waku/background.jpg"/>
+        <img ref={homeImgRef} className="object-cover h-screen w-full transition-filter duration-700" 
+            src="./background.jpg"/>
       </div>
       <div ref={homeIntroRef} className="transition-opacity duration-700 h-screen 
         w-full flex items-center justify-center flex-col font-bold">

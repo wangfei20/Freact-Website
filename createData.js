@@ -15,8 +15,8 @@ async function createData(){
 
     console.log(content);
 
-    await fs.writeFile('dist/data.json',JSON.stringify({content}))
-
+    await fs.writeFile('public/doc.json',JSON.stringify({content}))
+    console.log("finished");
     } catch (error) {
         console.log(error);
     }

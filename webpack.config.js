@@ -1,9 +1,13 @@
 
-const path = require('path');
+import path from 'path'
+import { fileURLToPath } from 'url';
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
-const webpack = require('webpack');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-module.exports = {
+const config = {
   mode: 'development',
   entry: ['./src/index.js'],
   output: {
@@ -32,9 +36,11 @@ module.exports = {
     ],
   },
   plugins:[
-    require('autoprefixer'),
+    autoprefixer,
+    tailwindcss
+    //require('autoprefixer'),
     //require('postcss-modules'),
-    require('tailwindcss'),
+    //require('tailwindcss'),
   ],
   resolve: {
     extensions: ['.js', '.jsx', ".mjs"],
@@ -50,3 +56,5 @@ module.exports = {
     hot: true, // Enable hot module replacement
   },
 };
+
+export default config

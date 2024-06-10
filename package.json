@@ -2,10 +2,11 @@
   "name": "createfreactapp",
   "version": "1.0.0",
   "main": "src/index.js",
+  "type":"module",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack-dev-server --open",
-    "start": "webpack --mode production && node index"
+    "build": "node createData && webpack --mode production",
+    "dev": "node createData && webpack-dev-server --open",
+    "start": "node createData && webpack --mode production && node index"
   },
   "author": "",
   "license": "ISC",

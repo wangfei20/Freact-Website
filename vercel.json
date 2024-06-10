@@ -4,8 +4,5 @@
         "src": "webpack.config.js",
         "use": "@vercel/static"
       }
-    ],
-    "static": {
-        "outputDir": "public"
-      }
+    ]
   }

@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',
   entry: ['./src/index.js'],
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
   devtool: 'source-map',
@@ -45,7 +45,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'docs'), // Serve content from the 'src' directory
+      directory: path.join(__dirname, 'public'), // Serve content from the 'src' directory
     },
     hot: true, // Enable hot module replacement
   },

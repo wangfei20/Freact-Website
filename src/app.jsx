@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'freact'
-import Home from './home';
+import Home from './home'
 
 export default function App() {
     const [content, setContent] = useState()
@@ -9,4 +9,5 @@ export default function App() {
         setContent(content)
     },[])
    return content ? <Home content={content}/> : <div/>
+//return <About/>
 }

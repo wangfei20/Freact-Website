@@ -2,6 +2,7 @@ import React,{ useEffect,useRef, useState, useMemo } from "freact";
 import MDContent from "@/components/MDContent";
 import 'prismjs/themes/prism-dark.css'
 
+
 export default function Home({content}) {
   const homeImgRef = useRef()
   const homeIntroRef = useRef()
@@ -9,6 +10,11 @@ export default function Home({content}) {
   const [navActive, setNavActive] = useState(false)
   const navLinksRef = useRef([])
   const [loaded, setLoaded] = useState(false)
+  
+  const onLoad = ()=> {
+    console.log("load");
+    setLoaded(true)
+  }
 
   function onScroll(){
     const scrollPosition = window.scrollY;
@@ -30,17 +36,17 @@ export default function Home({content}) {
   }
 
   useEffect(()=>{
-      
-        window.addEventListener('scroll', onScroll);
-        onScroll()
-        setLoaded(true)
-        
-        navLinksRef.current = Array.from(document.querySelectorAll(".md-content h2"))
-        console.log("navlink",navLinksRef.current);
-        return ()=>{
-          window.removeEventListener('scroll', onScroll);
-        }
-      
+    window.addEventListener('load', onLoad)
+    window.addEventListener('scroll', onScroll);
+    onScroll()
+    setLoaded(true)
+    
+    navLinksRef.current = Array.from(document.querySelectorAll(".md-content h2"))
+    console.log("navlink",navLinksRef.current);
+    return ()=>{
+      window.removeEventListener("load",onLoad);
+      window.removeEventListener('scroll', onScroll);
+    }
   },[])
 
   const navLinks = useMemo(()=>{
@@ -64,13 +70,13 @@ export default function Home({content}) {
   return (
     <main>
       <div className="fixed h-screen w-full -z-[1]">
-        <img ref={homeImgRef} className="object-cover h-screen w-full transition-filter duration-700" 
+        <img ref={homeImgRef} className="bg-slate-800 object-cover h-screen w-full transition-filter duration-700" 
             src="./background.jpg"/>
       </div>
       <div ref={homeIntroRef} className="transition-opacity duration-700 h-screen 
         w-full flex items-center justify-center flex-col font-bold">
         <h1 className="md:text-9xl text-7xl text-shadow-xl text-white">Freact</h1>
-        <h3 className="text-xl text-gray-200 mt-3 mb-7">The minimal React Framework</h3>
+        <h3 className="text-xl text-gray-200 mt-3 mb-7 text-center">The minimal React-like Framework</h3>
         <button className="focus:outline focus:outline-4 focus:outline-red-400 
           px-7 py-4 text-white rounded bg-red-700 hover:bg-red-600 text-lg transition-colors"
           onclick={()=>{navigateTo(navLinks[0])}}>
@@ -78,20 +84,26 @@ export default function Home({content}) {
         </button>
       </div>
       <div className="flex justify-center px-3 sm:px-8 pb-10">
-        <div className="2xl:max-w-[1000px] md:max-w-[800px] text-white/80 md-content">
-        <MDContent content={content}>
-        </MDContent>
+        <div className="max-w-full 2xl:max-w-[1000px] md:max-w-[800px] text-white/80 md-content">
+          <MDContent content={content}>
+          </MDContent>
         </div>
         
       </div>
+      <div className="mt-12 mb-[120px] text-center">
+        <a href="https://github.com/wangfei20/Freact" className="text-shadow !inline-block -rotate-[5deg] transform whitespace-nowrap text-center font-serif text-3xl font-extrabold leading-none text-white transition-colors duration-300 ease-in-out hover:text-red-500 sm:mr-4 sm:text-6xl">
+          star Freact on Github!
+        </a>
+      </div>
+
       
-      <div onclick={toggleNav} className={`fixed z-50 right-8 top-5 text-2xl text-red-700 bg-black/80 cursor-pointer
+      <div onclick={toggleNav} className={`fixed z-50 right-4 top-3 md:right-8 md:top-5 text-2xl text-red-700 bg-black/80 cursor-pointer
         w-[55px] h-[55px] flex items-center justify-center rounded-full
         hover:outline hover:outline-4 hover:outline-red-500 focus:outline focus:outline-4 focus:outline-red-500
         ${navActive ? "outline outline-4 outline-red-500 outline outline-4 outline-red-500 md:opacity-0 transition-opacity duration-500" : ""
 
         }`}>
-        F
+        <img src="./logo.svg" className="w-4 h-4"/>
       </div>
       
       
@@ -102,7 +114,7 @@ export default function Home({content}) {
       md:w-[350px] md:h-auto md:top-10 md:bottom-10 md:right-5 md:rounded-lg 
       md:border md:border-gray-600 md:p-10 ${navActive ? "" : "hidden"}`}>
         <h1 className="text-5xl text-center drop-shadow-lg font-bold text-white">Freact</h1>
-        <div className="text-gray-400 mt-10 flex-1 w-full">
+        <div className="scrollable text-gray-400 mt-10 mb-5 flex-1 w-full">
           {
             navLinks?.map((n,i) => 
             <div key={n.id} onclick={()=>navigateTo(n)} 
@@ -113,10 +125,10 @@ export default function Home({content}) {
           }
         </div>
         <div className="contacts mb-10 md:mb-0 w-auto">
-          <a href="https://github.com/wangfei20/FreactJs" target="_blank" >
+          <a href="https://github.com/wangfei20/Freact" target="_blank" >
             Github
           </a>
-          <a href="https://feisportfolio.vercel.app" target="_blank" >
+          <a href="https://fiona-wang.vercel.app" target="_blank" >
             Website
           </a>
           <a href="mailto://fey.wang@outlook.com" target="_blank" >

@@ -91,8 +91,8 @@ export default function Home({content}) {
         
       </div>
       <div className="mt-12 mb-[120px] text-center">
-        <a href="https://github.com/wangfei20/Freact" className="text-shadow !inline-block -rotate-[5deg] transform whitespace-nowrap text-center font-serif text-3xl font-extrabold leading-none text-white transition-colors duration-300 ease-in-out hover:text-red-500 sm:mr-4 sm:text-6xl">
-          star Freact on Github!
+        <a href="https://github.com/wangfei20/Freact" className="text-shadow !inline-block -rotate-[5deg] transform whitespace-nowrap text-center font-serif text-3xl font-extrabold leading-none transition-colors duration-300 ease-in-out text-red-500 hover:text-white sm:mr-4 sm:text-6xl">
+          Powered by Freact!
         </a>
       </div>
 

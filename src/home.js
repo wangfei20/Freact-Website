@@ -1,6 +1,34 @@
-import React,{ useEffect,useRef, useState, useMemo } from "freact";
+import React,{ useEffect,useRef, useState, useMemo, memo } from "freact";
 import MDContent from "@/components/MDContent";
 import 'prismjs/themes/prism-dark.css'
+
+
+const AnimatedLoadingIndicator = (
+) => {
+
+  return (
+    <div >
+      <svg className="spinner" viewBox="0 0 50 50">
+        <circle className="path" cx="25" cy="25" r="20" stroke-width="5"></circle>
+      </svg>
+    </div>
+  );
+};
+
+const LazyImage = memo(({src,className,placeholder})=>{
+  const imgRef = useRef()
+  useEffect(()=>{
+    const image = new Image()
+    image.src = src
+    image.addEventListener("load",()=>{
+      //setTimeout(()=>imgRef.current.src = src,1000)
+      imgRef.current.src = src
+    })
+  },[])
+  return <img ref={imgRef} className={className} src={placeholder}/>
+})
+
+
 
 
 export default function Home({content}) {
@@ -35,7 +63,7 @@ export default function Home({content}) {
     setNavActive(!navActive)
   }
 
-  useEffect(()=>{
+  useEffect(async()=>{
     window.addEventListener('load', onLoad)
     window.addEventListener('scroll', onScroll);
     onScroll()
@@ -66,12 +94,12 @@ export default function Home({content}) {
   }
 
   console.log("home",navLinks);
-
+// placeholder="./background-small.jpg"
   return (
     <main>
-      <div className="fixed h-screen w-full -z-[1]">
-        <img ref={homeImgRef} className="bg-slate-800 object-cover h-screen w-full transition-filter duration-700" 
-            src="./background.jpg"/>
+      <div className="fixed h-screen w-full -z-[1] bg-slate-800 " ref={homeImgRef}>
+        <LazyImage className="object-cover h-screen w-full transition-filter duration-700" 
+            src="./background.jpg" placeholder="./background-small.jpg"/>
       </div>
       <div ref={homeIntroRef} className="transition-opacity duration-700 h-screen 
         w-full flex items-center justify-center flex-col font-bold">
@@ -131,7 +159,7 @@ export default function Home({content}) {
           <a href="https://fiona-wang.vercel.app" target="_blank" >
             Website
           </a>
-          <a href="mailto://fey.wang@outlook.com" target="_blank" >
+          <a href="mailto://fiona.w.maple@gmail.com" target="_blank" >
             Email
           </a>
         </div>

@@ -2,7 +2,7 @@
   "name": "createfreactapp",
   "version": "1.0.0",
   "main": "src/index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "build": "node createData && webpack --mode production",
     "dev": "node createData && webpack-dev-server --open",
@@ -17,7 +17,7 @@
     "babel-loader": "^9.1.3",
     "css-loader": "^7.1.1",
     "express": "^4.19.2",
-    "feireact": "^1.0.3",
+    "feireact": "^1.0.6",
     "html-webpack-plugin": "^5.6.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",

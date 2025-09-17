@@ -11,6 +11,6 @@ export default function App() {
         setContent(content)
         
     },[])
-   return content ? <Home content={content}/> : <AnimatedLoadingIndicator/>
+   return content ? <Home content={content}/> : <div/>
 
 }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="13.999999999999998" height="13.999999999999998"><svg width="13.999999999999998" height="13.999999999999998" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+ <g>
+  <title>Layer 1</title>
+  <g transform="rotate(90 7 7)" id="SvgjsG1003">
+   <path id="SvgjsPath1002" fill="#cf223b" d="m5.27778,1.75c0,-0.82843 0.6716,-1.5 1.5,-1.5l0.75,0c0.8284,0 1.5,0.67157 1.5,1.5l0,10.5c0,0.8284 -0.6716,1.5 -1.5,1.5l-0.75,0c-0.8284,0 -1.5,-0.6716 -1.5,-1.5l0,-10.5z"></path>
+   <path id="SvgjsPath1001" fill="#cf223b" d="m10,8.5c0,-0.82843 0.67157,-1.5 1.5,-1.5l0.75,0c0.82843,0 1.5,0.67157 1.5,1.5l0,3.75c0,0.82843 -0.67157,1.5 -1.5,1.5l-0.75,0c-0.82843,0 -1.5,-0.67157 -1.5,-1.5l0,-3.75z"></path>
+   <path id="SvgjsPath1000" fill="#cf223b" d="m0.25,1.75c0,-0.82843 0.67157,-1.5 1.5,-1.5l0.75,0c0.82843,0 1.5,0.67157 1.5,1.5l0,10.5c0,0.8284 -0.67157,1.5 -1.5,1.5l-0.75,0c-0.82843,0 -1.5,-0.6716 -1.5,-1.5l0,-10.5z"></path>
+  </g>
+ </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+</style></svg>

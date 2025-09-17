@@ -13,8 +13,6 @@ async function createData(){
         return `${match} id="part-${index}"`
     })
 
-    console.log(content);
-
     await fs.writeFile('public/doc.json',JSON.stringify({content}))
     console.log("finished");
     } catch (error) {

@@ -1,5 +1,5 @@
 ## Introduction
-[Freact](https://github.com/wangfei20/Freact) is a lightweight yet powerful React-like UI library developed by [Fiona Wang](https://fiona-wang.vercel.app). It comes with most core functionalities and almost identical API of React, ensuring a consistent and familiar development experience for developers.
+[Freact](https://github.com/wangfei20/Freact) is a lightweight yet powerful React-like UI library developed by [Faye Wang](https://faye-wang.vercel.app). It comes with most core functionalities and almost identical API of React, ensuring a consistent and familiar development experience for developers.
 
 Freact is in rapid development and some features are currently missing. Please try it on non-production projects and report any issues you may encounter. Contributors are welcome!
 
@@ -30,7 +30,7 @@ const Greeting = ({name, children}) => {
 }
 
 render(
-  <Greeting name="Fiona">This is a Freact Component</Greeting>,
+  <Greeting name="Faye">This is a Freact Component</Greeting>,
   document.getElementById('root')
 );
 ```
@@ -57,7 +57,7 @@ const Example = () => {
   
   return (
     <div>
-      { isAuthenticated ? "Hello Fiona"/> : "Please Login" }
+      <h2>{ isAuthenticated ? "Hello Faye" : "Please Login" }</h2>
       <button onclick={toggleAuth}>
         {
             isAuthenticated ? 'Logout' : 'Login'
@@ -143,7 +143,7 @@ const Example = () => {
   }
   return (
     <div>
-      <p>{ isAuthenticated ? "Hello Fiona" : "Please Login" }</p>
+      <p>{ isAuthenticated ? "Hello Faye" : "Please Login" }</p>
       <button onclick={toggleAuth}>
         {
             isAuthenticated ? 'Logout' : 'Login'
